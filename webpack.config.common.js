@@ -11,6 +11,9 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		clean: true,
 	},
+	resolve: {
+		extensions: ['.tsx', '.ts', '.jsx', '.js'],
+	},
 	plugins: [new HtmlWebpackPlugin({
 		template: path.resolve(__dirname, 'public/index.html'),
 	}),
@@ -38,6 +41,11 @@ module.exports = {
 	],
 	module: {
 		rules: [
+			{
+				test: /\.[tj]sx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
 			{
 				test: /\.css$/i,
 				use: [MiniCssExtractPlugin.loader, "css-loader"],

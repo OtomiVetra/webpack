@@ -23,7 +23,6 @@ volumeControl.addEventListener('input', () => {
   }
 });
 
-// Инициализация громкости для всех звуков
 Object.values(sounds).forEach(audio => {
   audio.volume = parseFloat(volumeControl.value);
 });
